@@ -5,7 +5,7 @@ pipeline {
         stage('Build do Projeto') {
             steps {
                 script {
-                    sh 'mvn clean install -DskipTests'
+                    sh 'mvn clean dependency:copy-dependencies install'
                 }
             }
         }
