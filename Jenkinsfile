@@ -5,7 +5,7 @@ pipeline {
         stage('Build do Projeto') {
             steps {
                 script {
-                    sh 'mvn clean dependency:copy-dependencies install'
+                    dockerapp = docker.build("suraydan/avaliacao:${env.BUILD_ID}", '-f ./dockerfile .')
                 }
             }
         }
