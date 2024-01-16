@@ -14,10 +14,10 @@ RUN add-apt-repository \
  
 # Instala o Docker
 RUN apt-get update -qq \
-    && apt-get -y install docker-ce
+    && apt-get -y install docker-ce wget
 
 # Instala o maven
-ARG MAVEN_VERSION=3.8.2
+ARG MAVEN_VERSION=3.8.8
 
 ENV MAVEN_HOME /opt/maven
 
