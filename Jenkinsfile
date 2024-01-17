@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy no Kubernetes ') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']){
-                    sh "pwd && cd /k8s && kubectl apply -f service.yaml,mysqldeployments.yaml,deployment.yaml"
+                    sh "pwd && ls && cd k8s && kubectl apply -f service.yaml,mysqldeployments.yaml,deployment.yaml"
                     //sh "kubectl set image deployment/web web=suraydan/avaliacao:latest"
                 }
             }
