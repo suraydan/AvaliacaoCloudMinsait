@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy no Kubernetes ') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']){
-                    sh "cd /var/jenkins_home/workspace/Avaliacao/k8s/ && kubectl apply -f services.yaml,mysqldeployment.yaml,deployment.yaml"
+                    sh "cd /var/jenkins_home/workspace/avaliacao/k8s/ && kubectl apply -f services.yaml,mysqldeployment.yaml,deployment.yaml"
                 }
             }
         }
