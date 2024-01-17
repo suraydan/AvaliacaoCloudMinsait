@@ -5,7 +5,6 @@ pipeline {
         stage('Build do Projeto') {
             steps {
                 script {
-                    //dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID} .", '-f ./dockerfile .')
                     sh 'mvn clean dependency:copy-dependencies install'
                 }
             }
@@ -41,8 +40,7 @@ pipeline {
         stage('Deploy no Kubernetes ') {
             steps {
                 withKubeConfig([credentialsId: 'kubeconfig']){
-                    sh "pwd && cd /var/jenkins_home/workspace/Avaliacao/k8s/ && ls && kubectl apply -f services.yaml,mysqldeployment.yaml,deployment.yaml"
-                    //sh "kubectl set image deployment/web web=suraydan/avaliacao:latest"
+                    sh "cd /var/jenkins_home/workspace/Avaliacao/k8s/ && kubectl apply -f services.yaml,mysqldeployment.yaml,deployment.yaml"
                 }
             }
         }
