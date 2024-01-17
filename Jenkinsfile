@@ -22,7 +22,7 @@ pipeline {
         stage('Gerar Imagem Docker') {
             steps {
                 script {
-                    dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID}", '-f ./dockerfile .')
+                    dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID}", '-f ./Dockerfile .')
                 }
             }
         }
