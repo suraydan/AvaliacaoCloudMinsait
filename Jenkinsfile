@@ -5,7 +5,8 @@ pipeline {
         stage('Build do Projeto') {
             steps {
                 script {
-                    dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID}", '-f ./dockerfile .')
+                    dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID} .")
+                    //dockerapp = docker.build("suraydan/avaliacao:v${env.BUILD_ID} .", '-f ./dockerfile .')
                     //sh 'mvn clean dependency:copy-dependencies install'
                 }
             }
